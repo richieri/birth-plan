@@ -1,0 +1,81 @@
+version: "3.7"
+
+services:
+  typebot-db:
+    image: postgres:14-alpine
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=typebot
+      - POSTGRES_PASSWORD=typebot
+      - ENCRYPTION_SECRET=${ ENCRYPTION_SECRET }
+    labels:
+      - traefik.enable=true
+    networks:
+      - traefik_default
+
+  typebot-builder:
+    # image: baptistearno/typebot-builder:2.27
+    image: baptistearno/typebot-builder:latest
+    restart: always
+    depends_on:
+      - typebot-db
+    #ports:
+    #  - '8080:3000'
+    environment:
+      - ENCRYPTION_SECRET=${ ENCRYPTION_SECRET }
+      - DATABASE_URL=postgresql://postgres:typebot@typebot-db:5432/typebot
+      - NODE_OPTIONS=--no-node-snapshot
+      - NEXTAUTH_URL=https://${ NEXTAUTH_URL }
+      - NEXT_PUBLIC_VIEWER_URL=${ NEXT_PUBLIC_VIEWER_URL }
+      - ADMIN_EMAIL=${ ADMIN_EMAIL }
+      - DISABLE_SIGNUP=true
+      - NEXT_PUBLIC_GOOGLE_API_KEY=${ GOOGLE_API_KEY }
+      - GOOGLE_AUTH_CLIENT_ID=${ GOOGLE_AUTH_CLIENT_ID }
+      - GOOGLE_AUTH_CLIENT_SECRET=${ GOOGLE_AUTH_CLIENT_SECRET }
+      - DEBUG=true
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.tb.rule=Host(`${ DOMAIN }`)"
+      - traefik.http.services.tb.loadbalancer.server.port=3000
+      - "traefik.http.routers.tb.entrypoints=web,websecure"
+      - "traefik.http.routers.tb.tls.certresolver=leresolver"
+    networks:
+      - traefik_default
+      - default
+
+  typebot-viewer:
+    image: baptistearno/typebot-viewer:latest
+    restart: always
+    #ports:
+      #- '8081:3000'
+    environment:
+      - ENCRYPTION_SECRET=${ ENCRYPTION_SECRET }
+      - DATABASE_URL=postgresql://postgres:typebot@typebot-db:5432/typebot
+      - NODE_OPTIONS=--no-node-snapshot
+      - NEXTAUTH_URL=https://${ NEXTAUTH_URL }
+      - NEXT_PUBLIC_VIEWER_URL=${ NEXT_PUBLIC_VIEWER_URL }
+      - ADMIN_EMAIL=${ ADMIN_EMAIL }
+      - DISABLE_SIGNUP=true
+      - NEXT_PUBLIC_GOOGLE_API_KEY=${ GOOGLE_API_KEY }
+      - GOOGLE_CLIENT_ID=${ GOOGLE_CLIENT_ID }
+      - GOOGLE_CLIENT_SECRET=${ GOOGLE_CLIENT_SECRET }
+      - DEBUG=true
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.tbv.rule=Host(`${ BOT_HOST }`)"z
+      - traefik.http.services.tbv.loadbalancer.server.port=3000
+      - traefik.http.services.tbv.loadbalancer.responseforwarding.flushinterval=-1
+      - "traefik.http.routers.tbv.entrypoints=web,websecure"
+      - "traefik.http.routers.tbv.tls.certresolver=leresolver"
+    networks:
+      - traefik_default
+
+volumes:
+  db-data:
+    driver: local
+
+networks:
+  traefik_default:
+    external: true

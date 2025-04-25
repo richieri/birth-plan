@@ -1,0 +1,1122 @@
+{
+    "version": "6",
+    "id": "cm0n6fsxe000s13pdf9twe6xy",
+    "name": "Plano de Parto V4 - Produção",
+    "events": [
+        {
+            "id": "cx6lmeii90n9bylikgj1nsgw",
+            "outgoingEdgeId": "w8nhlkei0iyghkafo1vwev4o",
+            "graphCoordinates": {
+                "x": -918.67,
+                "y": 594
+            },
+            "type": "start"
+        }
+    ],
+    "groups": [
+        {
+            "id": "xb9c6y7lh1wwqfi4sn17pdi4",
+            "title": "Consulta IA Start",
+            "graphCoordinates": {
+                "x": 1371.44,
+                "y": 678
+            },
+            "blocks": [
+                {
+                    "id": "dxkkiehxiwr134wrzz1g6oxd",
+                    "type": "text input",
+                    "options": {
+                        "labels": {
+                            "placeholder": "Digite sua resposta",
+                            "button": "Enviar"
+                        },
+                        "variableId": "vemv6sopezeykvddqt8z99kkh",
+                        "isLong": false
+                    }
+                },
+                {
+                    "id": "bmx229udpq6zwhvk8oz05ab1",
+                    "type": "openai",
+                    "options": {
+                        "credentialsId": "cm09mx6hw000g13pdveeex3h6",
+                        "action": "Ask Assistant",
+                        "assistantId": "asst_7Qhv8yV5Yhhmg6ZDM1kgkGZg",
+                        "threadVariableId": "vmfecorgbrx4cm10ke9ircfcy",
+                        "message": "{{coletor}}",
+                        "functions": [
+                            {}
+                        ],
+                        "responseMapping": [
+                            {
+                                "variableId": "vlslia4yx4nymad3mzvx6728l"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "lph3gf8sne3ovttnm3vdstpd",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "{{resposta}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "o5iqk2pal3finlt2kyhnot73",
+                    "type": "Condition",
+                    "items": [
+                        {
+                            "id": "q0hiv9hmqy9fw2f3oax40gxv",
+                            "outgoingEdgeId": "frzxvh03m4n4jh7asmm71wxr",
+                            "content": {
+                                "comparisons": [
+                                    {
+                                        "id": "u9502rcsdva52ea62tnrrvoo",
+                                        "variableId": "vlslia4yx4nymad3mzvx6728l",
+                                        "comparisonOperator": "Contains",
+                                        "value": "#planodepartodouladecabeceira"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "efv48tn7f7cres5t1dxwv1eb",
+                    "type": "Set variable",
+                    "options": {
+                        "variableId": "vemv6sopezeykvddqt8z99kkh",
+                        "type": "Empty"
+                    }
+                },
+                {
+                    "id": "x160ziewv39lzclinphacwx8",
+                    "type": "openai",
+                    "options": {
+                        "credentialsId": "cm09mx6hw000g13pdveeex3h6",
+                        "action": "Ask Assistant",
+                        "assistantId": "asst_YGrX7v5eguO1r6xBEpVWXoRn",
+                        "threadVariableId": "vf3bwimaqce104idyhkvmhkd3",
+                        "message": "{{resposta}}",
+                        "functions": [],
+                        "responseMapping": [
+                            {
+                                "variableId": "vhjxf1eb8b4pcfre0nxoh1y86"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "d8nhryu9alky6n1psdf65idp",
+                    "type": "Set variable",
+                    "options": {
+                        "variableId": "vb5jo5wrdhosr6pa1k78mh9ys",
+                        "expressionToEvaluate": "const data = JSON.parse({{video_reply}});\nreturn data.video;",
+                        "isCode": true
+                    }
+                },
+                {
+                    "id": "lo5s8lugg9ke4jeaajsfns32",
+                    "outgoingEdgeId": "tkfgosqchbitvrhcdpztcv6z",
+                    "type": "Condition",
+                    "items": [
+                        {
+                            "id": "l3iv84n0jyvwlk41uhndvgm4",
+                            "outgoingEdgeId": "x0dlsjola914ywmlamoxeja8",
+                            "content": {
+                                "comparisons": [
+                                    {
+                                        "id": "c93df35tzlki48aft0b1pdr9",
+                                        "variableId": "vb5jo5wrdhosr6pa1k78mh9ys",
+                                        "comparisonOperator": "Contains",
+                                        "value": "https://"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ufuzrttjrq9yttm0bnip8nkl",
+            "title": "Group #2",
+            "graphCoordinates": {
+                "x": 1957.26,
+                "y": 663.89
+            },
+            "blocks": [
+                {
+                    "id": "y4afkf5nrp6m8cwhchf3ebw9",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Seu plano de parto está pronto! 🫶"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "fmp3fysi33mncer84xauzd38",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Irei enviá-lo para seu e-mail dentro de alguns minutos!"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "crshi3axwco5ollyh5fyap2a",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Não esqueça de olhar na sua caixa de Spam caso não encontre seu plano de parto em 1 hora."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "m0blxxkxgqw6rhnbna6qavaz",
+                    "outgoingEdgeId": "vdx1k69moqj39fhfctqm9pws",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "O Doula de Cabeceira  te deseja uma ótima hora!"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "E ainda te oferece uma plataforma online com vídeos e recursos essenciais sobre gestação, parto e puerpério. Ideal para quem deseja aprender e se preparar sem custo elevado, com uma biblioteca de conteúdos acessível a qualquer momento e em qualquer lugar. "
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Eduque-se e prepare-se para uma experiência incrível ao lado de seu parceiro."
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Acesse:"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": ""
+                                    },
+                                    {
+                                        "url": "https://www.douladecabeceira.com.br/",
+                                        "type": "a",
+                                        "children": [
+                                            {
+                                                "text": "http://www.douladecabeceira.com.br "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "e1lxljfg52ih371g7o71hh5r",
+            "title": "Group #4",
+            "graphCoordinates": {
+                "x": -273.67,
+                "y": 239
+            },
+            "blocks": [
+                {
+                    "id": "dw4tir9oa4dkdcso63nhois1",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Olá !  Muito feliz em te ver por aqui! 🥰"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "etdaqrgn4up4ykpgh9m7ru8j",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Sou a inteligência artificial do Doula de Cabeceira e estou aqui para te ajudar. "
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "tgnimkfln0et3xdqvrlu2uil",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Imagine que você está numa consulta gratuita com uma doula, então recomendo que você reserve , pelo menos, meia hora para fazer todo o processo. "
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "n2wsivnld24n9vle368ogkaz",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Te farei algumas perguntas sobre suas expectativas para esse momento tão especial e poderei esclarecer suas dúvidas."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "jgmcf2alchy9qq8qcrle5cs8",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Além de aprender um montão de coisas a respeito do momento do parto, você sairá daqui com um esboço do seu "
+                                    },
+                                    {
+                                        "bold": true,
+                                        "text": "PLANO DE PARTO."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "qpxfnkbezygnd6d05bwmz3xx",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Carregue esse documento contigo e valide ele com sua equipe de parto.\n"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "f8xyi7ilt5s0mt0psy1gup09",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Chame seu acompanhante para que ele se empodere de informações sobre práticas recomendadas e as obsoletas, protegendo você de alguma violência obstétrica."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "ai2pmmcl680sfzwbroamywgb",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Como vamos trocar informações sensíveis, preciso que você leia e esteja de acordo com nossa Política de Privacidade, que está disponível no link a seguir:"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": ""
+                                    },
+                                    {
+                                        "url": "https://douladecabeceira.com.br/politica-de-privacidade",
+                                        "type": "a",
+                                        "children": [
+                                            {
+                                                "text": "https://douladecabeceira.com.br/politica-de-privacidade"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "exihzlcsyxekubahf0y1iigs",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "E então, está de acordo? Podemos começar?"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "m1qfz41vs9f5cr402qc47xjd",
+                    "type": "choice input",
+                    "items": [
+                        {
+                            "id": "mdyobb456oquscmrdkqtato6",
+                            "outgoingEdgeId": "s9y9en2rezz9z9mys6eg7x96",
+                            "content": "Sim! Quero fazer meu plano de parto!",
+                            "displayCondition": {
+                                "isEnabled": true
+                            }
+                        }
+                    ],
+                    "options": {
+                        "variableId": "vemv6sopezeykvddqt8z99kkh",
+                        "isMultipleChoice": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "wtk3pnphmd3r9j8s37b9d6os",
+            "title": "Group #5",
+            "graphCoordinates": {
+                "x": -663.67,
+                "y": 565
+            },
+            "blocks": [
+                {
+                    "id": "z2m9yuorn191n4bxu0jo09xo",
+                    "type": "Set variable",
+                    "options": {
+                        "variableId": "vwuha9r8ivhavc90plrflg6c3",
+                        "type": "Random ID"
+                    }
+                },
+                {
+                    "id": "e9xt68ewrpwwmdmpsn369fbf",
+                    "outgoingEdgeId": "t2w8q862mqeuk11zuey9vb5x",
+                    "type": "Set variable",
+                    "options": {
+                        "variableId": "vemv6sopezeykvddqt8z99kkh",
+                        "expressionToEvaluate": "Quero fazer meu plano de parto"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "r9pj6tzasxupxptpudc1x2q1",
+            "title": "EmailValidation1",
+            "graphCoordinates": {
+                "x": 94.33,
+                "y": 520
+            },
+            "blocks": [
+                {
+                    "id": "shunulzwio32nsrtsemzefhx",
+                    "type": "Set variable",
+                    "options": {
+                        "variableId": "vwl35uxj7dbljes423pwh0bkl",
+                        "type": "Custom",
+                        "expressionToEvaluate": "Math.floor(1000 + Math.random() * 9000);"
+                    }
+                },
+                {
+                    "id": "fsjkknbuv6w6hl27408233f1",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Legal, primeiro, digite seu e-mail para que eu possa te enviar o esboço do seu "
+                                    },
+                                    {
+                                        "bold": true,
+                                        "text": "PLANO DE PARTO"
+                                    },
+                                    {
+                                        "text": " no final: "
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "j9hsp3zu6rwctmpchyxk4xhs",
+                    "type": "email input",
+                    "options": {
+                        "variableId": "vmy11nkg0lmfr5btswj1k2kco",
+                        "labels": {
+                            "placeholder": "Digite seu e-mail...",
+                            "button": "Enviar"
+                        },
+                        "retryMessageContent": "Parece que há algo de errado com o e-mail que você digitou. Pode conferir novamente?"
+                    }
+                },
+                {
+                    "id": "ym162pjc91fng9gwsjgo9bhi",
+                    "type": "Email",
+                    "options": {
+                        "credentialsId": "clzu7xj68000ieuqyc7r14m3c",
+                        "isCustomBody": true,
+                        "isBodyCode": false,
+                        "recipients": [
+                            "{{email}}"
+                        ],
+                        "subject": "Código para prosseguir com o plano de parto",
+                        "body": "Olá!\n\nPara continuar com nosso plano-de-parto você precisar concordar com nossa Política de Privacidade, que está disponível no link abaixo:\n\nhttps://douladecabeceira.com.br/politica-de-privacidade\n\nSe estiver de acordo com nossa Política de Privacidade, utilize o código abaixo para prosseguir com seu plano de parto:\n\n{{validation_code}}\n\nAtenciosamente,\n\nDoula de Cabeceira\nhttps://douladecabeceira.com.br",
+                        "bcc": [
+                            "contato@douladecabeceira.com.br"
+                        ]
+                    }
+                },
+                {
+                    "id": "owvmnhmpz7c48362i1yhpynb",
+                    "outgoingEdgeId": "qns4lfberzua5bdo7opek9tb",
+                    "type": "Email",
+                    "options": {
+                        "credentialsId": "clzu7xj68000ieuqyc7r14m3c",
+                        "isCustomBody": false,
+                        "isBodyCode": false,
+                        "recipients": [
+                            "contato@douladecabeceira.com.br"
+                        ],
+                        "subject": "Plano de parto iniciado para email {{email}}",
+                        "body": ""
+                    }
+                }
+            ]
+        },
+        {
+            "id": "dtgf2z6weornjmflb6mu8lj4",
+            "title": "Group #7",
+            "graphCoordinates": {
+                "x": 938.7,
+                "y": 549.65
+            },
+            "blocks": [
+                {
+                    "id": "lmzyp16iy2yyvxpwj5544die",
+                    "type": "text input",
+                    "options": {
+                        "labels": {
+                            "placeholder": "Digite o código de validação...",
+                            "button": "Enviar"
+                        },
+                        "variableId": "vwd234gb44eyk9awr5a1d32jo"
+                    }
+                },
+                {
+                    "id": "crq6j6x8ultwy124pazlebve",
+                    "type": "Condition",
+                    "items": [
+                        {
+                            "id": "qedp063q8shjqtq0qi2n4uf1",
+                            "outgoingEdgeId": "ixdqd8ktjajtj16yn8zvp31d",
+                            "content": {
+                                "comparisons": [
+                                    {
+                                        "id": "yn6kg67jk4935au2j4s1am70",
+                                        "variableId": "vwl35uxj7dbljes423pwh0bkl",
+                                        "comparisonOperator": "Equal to",
+                                        "value": "{{validation_code_check}}"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ft81fyaz0f7uu0shzjwp62dz",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Parece que o código não está correto 😢 Poderia tentar novamente?"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "e78b0b9j92aky300skrmiwxp",
+                    "outgoingEdgeId": "i68ndq89xd8n51rfyg8hgv54",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Se você digitou errado seu e-mail, por favor, recarregue esta página e reinicie a conversa "
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "jnmafj7ci3inxlk7yhrcbo01",
+            "title": "Group #8",
+            "graphCoordinates": {
+                "x": 534.7,
+                "y": 572.65
+            },
+            "blocks": [
+                {
+                    "id": "hv8gm4083q77h7dsceeu5i2s",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Enviei um código de validação para seu e-mail."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "ilo5jthw9vlkrx1njt9srarm",
+                    "outgoingEdgeId": "j77phv9dsnbcykflut617i3r",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Olhe sua caixa de Spam caso não tenha recebido esse e-mail."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "rmpd3g0c4nrhpt1mimpth2ce",
+                    "outgoingEdgeId": "q45xnrd3sn69yuvccyq15k7b",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Digite o código para prosseguir:"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "o9ctakw2faanhmiu55c9om91",
+            "title": "Email valido",
+            "graphCoordinates": {
+                "x": 1358.7,
+                "y": 407.65
+            },
+            "blocks": [
+                {
+                    "id": "uqqxt9g7bhhycmuws0fgjcva",
+                    "outgoingEdgeId": "vslpsgrjeh95rp0v723mb67r",
+                    "type": "Email",
+                    "options": {
+                        "credentialsId": "default",
+                        "recipients": [
+                            "contato@douladecabeceira.com.br"
+                        ],
+                        "subject": "Plano de parto - email válido {{email}}"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "uxmsmw42j71b3owmaju6rrfq",
+            "title": "Group #9",
+            "graphCoordinates": {
+                "x": 2350.09,
+                "y": 742.37
+            },
+            "blocks": [
+                {
+                    "id": "wpb1vlzq8gj9gds22itavc3o",
+                    "type": "Set variable",
+                    "options": {
+                        "variableId": "vesxzpkclkg2ugp6ct0uycsx4",
+                        "type": "Empty"
+                    }
+                },
+                {
+                    "id": "f80kz4d5pahao2y0hn84lgde",
+                    "type": "Code",
+                    "options": {
+                        "content": "var plano={{resposta}};\nplano=plano.split(\"#planodepartodouladecabeceira\").pop();\nplano=plano.split(\"#fimdoplanodeparto\").shift();\nsetVariable(\"planodeparto\", plano);\n",
+                        "isExecutedOnClient": false
+                    }
+                },
+                {
+                    "id": "cyqrm8qu4wysm17kxob6qvp7",
+                    "type": "Email",
+                    "options": {
+                        "credentialsId": "clzu7xj68000ieuqyc7r14m3c",
+                        "isCustomBody": true,
+                        "recipients": [
+                            "{{email}}"
+                        ],
+                        "subject": "Seu plano de parto",
+                        "body": "Aqui estão alguns pontos que discutimos, que te auxiliarão a montar seu plano de parto junto com sua equipe médica ou doula:\n\n{{planodeparto}}\n\nTenha uma ótima hora!\n\nDoula de Cabeceira\nhttps://www.douladecabeceira.com.br/",
+                        "bcc": [
+                            "contato@douladecabeceira.com.br"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "wze9clw2hurhtdcfh002k3uz",
+            "title": "Video",
+            "graphCoordinates": {
+                "x": 960.02,
+                "y": 1272.2
+            },
+            "blocks": [
+                {
+                    "id": "hbyx9pgaizc6zna4xw9vftip",
+                    "type": "text",
+                    "content": {
+                        "richText": [
+                            {
+                                "type": "p",
+                                "children": [
+                                    {
+                                        "text": "Aqui tem um video com mais informações sobre o assunto:"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "zfll60bmsqhc2v9z12vhbpob",
+                    "outgoingEdgeId": "vuqb7tri09i09s6w3fy55f17",
+                    "type": "video",
+                    "content": {
+                        "url": "{{video_url}}",
+                        "type": "url",
+                        "maxWidth": "100%"
+                    }
+                }
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "id": "frzxvh03m4n4jh7asmm71wxr",
+            "from": {
+                "blockId": "o5iqk2pal3finlt2kyhnot73",
+                "itemId": "q0hiv9hmqy9fw2f3oax40gxv"
+            },
+            "to": {
+                "groupId": "ufuzrttjrq9yttm0bnip8nkl"
+            }
+        },
+        {
+            "id": "tad0cnoibirz5go6vsefrnl9",
+            "from": {
+                "blockId": "d3y9yv8ilhseqk618bhbf02l",
+                "itemId": "f179j1iqxx8v5s60j8w1ttg5"
+            },
+            "to": {
+                "groupId": "ufuzrttjrq9yttm0bnip8nkl"
+            }
+        },
+        {
+            "id": "w8nhlkei0iyghkafo1vwev4o",
+            "from": {
+                "eventId": "cx6lmeii90n9bylikgj1nsgw"
+            },
+            "to": {
+                "groupId": "wtk3pnphmd3r9j8s37b9d6os"
+            }
+        },
+        {
+            "id": "s9y9en2rezz9z9mys6eg7x96",
+            "from": {
+                "blockId": "m1qfz41vs9f5cr402qc47xjd",
+                "itemId": "mdyobb456oquscmrdkqtato6"
+            },
+            "to": {
+                "groupId": "r9pj6tzasxupxptpudc1x2q1"
+            }
+        },
+        {
+            "id": "i68ndq89xd8n51rfyg8hgv54",
+            "from": {
+                "blockId": "e78b0b9j92aky300skrmiwxp"
+            },
+            "to": {
+                "groupId": "dtgf2z6weornjmflb6mu8lj4"
+            }
+        },
+        {
+            "id": "qns4lfberzua5bdo7opek9tb",
+            "from": {
+                "blockId": "owvmnhmpz7c48362i1yhpynb"
+            },
+            "to": {
+                "groupId": "jnmafj7ci3inxlk7yhrcbo01"
+            }
+        },
+        {
+            "id": "ixdqd8ktjajtj16yn8zvp31d",
+            "from": {
+                "blockId": "crq6j6x8ultwy124pazlebve",
+                "itemId": "qedp063q8shjqtq0qi2n4uf1"
+            },
+            "to": {
+                "groupId": "o9ctakw2faanhmiu55c9om91"
+            }
+        },
+        {
+            "id": "vdx1k69moqj39fhfctqm9pws",
+            "from": {
+                "blockId": "m0blxxkxgqw6rhnbna6qavaz"
+            },
+            "to": {
+                "groupId": "uxmsmw42j71b3owmaju6rrfq"
+            }
+        },
+        {
+            "id": "q45xnrd3sn69yuvccyq15k7b",
+            "from": {
+                "blockId": "rmpd3g0c4nrhpt1mimpth2ce"
+            },
+            "to": {
+                "groupId": "dtgf2z6weornjmflb6mu8lj4"
+            }
+        },
+        {
+            "id": "vslpsgrjeh95rp0v723mb67r",
+            "from": {
+                "blockId": "uqqxt9g7bhhycmuws0fgjcva"
+            },
+            "to": {
+                "groupId": "xb9c6y7lh1wwqfi4sn17pdi4",
+                "blockId": "bmx229udpq6zwhvk8oz05ab1"
+            }
+        },
+        {
+            "id": "x0dlsjola914ywmlamoxeja8",
+            "from": {
+                "blockId": "lo5s8lugg9ke4jeaajsfns32",
+                "itemId": "l3iv84n0jyvwlk41uhndvgm4"
+            },
+            "to": {
+                "groupId": "wze9clw2hurhtdcfh002k3uz"
+            }
+        },
+        {
+            "id": "tkfgosqchbitvrhcdpztcv6z",
+            "from": {
+                "blockId": "lo5s8lugg9ke4jeaajsfns32"
+            },
+            "to": {
+                "groupId": "xb9c6y7lh1wwqfi4sn17pdi4"
+            }
+        },
+        {
+            "id": "vuqb7tri09i09s6w3fy55f17",
+            "from": {
+                "blockId": "zfll60bmsqhc2v9z12vhbpob"
+            },
+            "to": {
+                "groupId": "xb9c6y7lh1wwqfi4sn17pdi4"
+            }
+        },
+        {
+            "id": "t2w8q862mqeuk11zuey9vb5x",
+            "from": {
+                "blockId": "e9xt68ewrpwwmdmpsn369fbf"
+            },
+            "to": {
+                "groupId": "e1lxljfg52ih371g7o71hh5r"
+            }
+        }
+    ],
+    "variables": [
+        {
+            "id": "vir5dxy1274sbh03kf9ffornv",
+            "name": "video_url_str",
+            "isSessionVariable": true
+        },
+        {
+            "id": "vb5jo5wrdhosr6pa1k78mh9ys",
+            "name": "video_url",
+            "isSessionVariable": true
+        },
+        {
+            "id": "vhjxf1eb8b4pcfre0nxoh1y86",
+            "name": "video_reply",
+            "isSessionVariable": true
+        },
+        {
+            "id": "vf3bwimaqce104idyhkvmhkd3",
+            "name": "videothreadid",
+            "isSessionVariable": true
+        },
+        {
+            "id": "vmfecorgbrx4cm10ke9ircfcy",
+            "name": "threadid",
+            "isSessionVariable": true
+        },
+        {
+            "id": "vzjev7jn0kjzj1a52v5zyic69",
+            "name": "question"
+        },
+        {
+            "id": "vygq78b1e0li86bca9emr2huu",
+            "name": "response"
+        },
+        {
+            "id": "vpanv7t6vgjis90k5l26jpbl6",
+            "name": "session"
+        },
+        {
+            "id": "vemv6sopezeykvddqt8z99kkh",
+            "name": "coletor",
+            "isSessionVariable": false
+        },
+        {
+            "id": "vlslia4yx4nymad3mzvx6728l",
+            "name": "resposta"
+        },
+        {
+            "id": "vbggj4cer9z9budipo6jnqkq1",
+            "name": "chatId"
+        },
+        {
+            "id": "vt2yuw8plsrb70befjnoxowt3",
+            "name": "Flowise"
+        },
+        {
+            "id": "vwuha9r8ivhavc90plrflg6c3",
+            "name": "chatSessionId"
+        },
+        {
+            "id": "vmy11nkg0lmfr5btswj1k2kco",
+            "name": "email",
+            "isSessionVariable": false
+        },
+        {
+            "id": "vwl35uxj7dbljes423pwh0bkl",
+            "name": "validation_code"
+        },
+        {
+            "id": "vwd234gb44eyk9awr5a1d32jo",
+            "name": "validation_code_check",
+            "isSessionVariable": false
+        },
+        {
+            "id": "vj7z689ayv0z88txio0bo9wk9",
+            "name": "filetobesent"
+        },
+        {
+            "id": "vesxzpkclkg2ugp6ct0uycsx4",
+            "name": "planodeparto"
+        }
+    ],
+    "theme": {
+        "general": {
+            "font": {
+                "type": "Google"
+            },
+            "background": {
+                "type": "Color",
+                "content": "#C2D6D8"
+            }
+        },
+        "chat": {
+            "hostAvatar": {
+                "isEnabled": true,
+                "url": "https://s3.ligerosmart.ai/typebot/public/workspaces/clprqm6uo0001nx1fiyj5om9b/typebots/clu1iyba80001p61pz7fw8lzk/hostAvatar?v=1711138118933"
+            },
+            "hostBubbles": {
+                "backgroundColor": "#F7F8FF",
+                "color": "#303235"
+            },
+            "guestBubbles": {
+                "backgroundColor": "#D79713",
+                "color": "#FFFFFF"
+            },
+            "buttons": {
+                "backgroundColor": "#EFBD3C",
+                "color": "#FFFFFF"
+            },
+            "inputs": {
+                "backgroundColor": "#FFFFFF",
+                "color": "#303235",
+                "placeholderColor": "#9095A0"
+            }
+        }
+    },
+    "selectedThemeTemplateId": "clu35f3im00044i67kgae1jf1",
+    "settings": {
+        "general": {
+            "isBrandingEnabled": false,
+            "isInputPrefillEnabled": true,
+            "isHideQueryParamsEnabled": true,
+            "rememberUser": {
+                "isEnabled": false
+            }
+        },
+        "typingEmulation": {
+            "enabled": true,
+            "speed": 450,
+            "maxDelay": 1.2
+        },
+        "metadata": {
+            "description": "LigeroSmart AI",
+            "imageUrl": "https://s3.ligerosmart.ai/typebot/public/workspaces/clprqm6uo0001nx1fiyj5om9b/typebots/cltr7abot001bpj1n8blo424b/ogImage?v=1710419866002",
+            "favIconUrl": "https://s3.ligerosmart.ai/typebot/public/workspaces/clprqm6uo0001nx1fiyj5om9b/typebots/cltr7abot001bpj1n8blo424b/favIcon?v=1710419777842"
+        },
+        "publicShare": {
+            "isEnabled": false
+        }
+    },
+    "createdAt": "2024-09-04T01:25:47.174Z",
+    "updatedAt": "2025-04-25T01:58:33.079Z",
+    "icon": "data:image/svg+xml;utf8,<svg fill='%23ffffff' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. --><path d='M128 0C110.3 0 96 14.3 96 32c0 16.1 11.9 29.4 27.4 31.7C78.4 106.8 8 190 8 288c0 47.4 30.8 72.3 56 84.7V400H256V372.7c25.2-12.5 56-37.4 56-84.7c0-37.3-10.2-72.4-25.3-104.1l-99.4 99.4c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6L270.8 154.6c-23.2-38.1-51.8-69.5-74.2-90.9C212.1 61.4 224 48.1 224 32c0-17.7-14.3-32-32-32H128zM48 432L6.6 473.4c-4.2 4.2-6.6 10-6.6 16C0 501.9 10.1 512 22.6 512H297.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L272 432H48z'/></svg>",
+    "folderId": "clzu7t06p000eeuqybtv6yh7c",
+    "publicId": "plano-de-parto-v4",
+    "customDomain": null,
+    "workspaceId": "clzsoy79q0001euqydtclpshh",
+    "resultsTablePreferences": null,
+    "isArchived": false,
+    "isClosed": false,
+    "whatsAppCredentialsId": null,
+    "riskLevel": null
+    }
