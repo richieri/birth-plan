@@ -38,6 +38,10 @@ The system is built using Docker and integrates multiple components to offer a s
 - Once complete, the user is notified that the birth plan will be emailed.
 - The final plan is sent via **Amazon SES**.
 
+---## 📊 Architecture Diagram
+
+![Architecture Diagram](Screenshots/Birth-Plan-architecture.png)
+
 ---
 
 ## 🛠️ Tech Stack
