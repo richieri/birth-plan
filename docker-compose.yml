@@ -16,13 +16,10 @@ services:
       - traefik_default
 
   typebot-builder:
-    # image: baptistearno/typebot-builder:2.27
     image: baptistearno/typebot-builder:latest
     restart: always
     depends_on:
       - typebot-db
-    #ports:
-    #  - '8080:3000'
     environment:
       - ENCRYPTION_SECRET=${ ENCRYPTION_SECRET }
       - DATABASE_URL=postgresql://postgres:typebot@typebot-db:5432/typebot
@@ -48,8 +45,6 @@ services:
   typebot-viewer:
     image: baptistearno/typebot-viewer:latest
     restart: always
-    #ports:
-      #- '8081:3000'
     environment:
       - ENCRYPTION_SECRET=${ ENCRYPTION_SECRET }
       - DATABASE_URL=postgresql://postgres:typebot@typebot-db:5432/typebot
